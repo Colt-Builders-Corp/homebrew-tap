@@ -5,13 +5,13 @@
 class SupabaseCli < Formula
   desc "Supabase CLI"
   homepage "https://github.com/Colt-Builders-Corp/supabase-cli"
-  version "0.26.5"
+  version "0.26.6"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/Colt-Builders-Corp/supabase-cli/releases/download/v0.26.5/supabase-cli_0.26.5_darwin_amd64.tar.gz"
-      sha256 "bef69ed1b6f7b414240db1883327fd4e3ab0f2d4ad163974d5cb333c919ef219"
+    if Hardware::CPU.arm?
+      url "https://github.com/Colt-Builders-Corp/supabase-cli/releases/download/v0.26.6/supabase-cli_0.26.6_darwin_arm64.tar.gz"
+      sha256 "d3941566bd1b98eebe1aca6ed6823e9055c31aa76f49c670074cc73c7cd589cc"
 
       def install
         bin.install "supabase"
@@ -20,9 +20,9 @@ class SupabaseCli < Formula
         (zsh_completion/"_supabase").write `#{bin}/supabase completion zsh`
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/Colt-Builders-Corp/supabase-cli/releases/download/v0.26.5/supabase-cli_0.26.5_darwin_arm64.tar.gz"
-      sha256 "6df5f2f76d1367acb996d3ef4031290005fae2e6923e72663f6434183287985b"
+    if Hardware::CPU.intel?
+      url "https://github.com/Colt-Builders-Corp/supabase-cli/releases/download/v0.26.6/supabase-cli_0.26.6_darwin_amd64.tar.gz"
+      sha256 "5231cde5a45f92baceb202db21fb91b20e777db7f4e95483c3b9220043871590"
 
       def install
         bin.install "supabase"
@@ -34,9 +34,9 @@ class SupabaseCli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Colt-Builders-Corp/supabase-cli/releases/download/v0.26.5/supabase-cli_0.26.5_linux_amd64.tar.gz"
-      sha256 "650f6d3e7c45c698fb49b795cbe130ff1648f5bfeb74f55a87fcf63033cf5ca7"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Colt-Builders-Corp/supabase-cli/releases/download/v0.26.6/supabase-cli_0.26.6_linux_arm64.tar.gz"
+      sha256 "4bd80234a79c93d77aff12fdda097cc56ee1ea0eaa129bee632c75fd53d24d8d"
 
       def install
         bin.install "supabase"
@@ -45,9 +45,9 @@ class SupabaseCli < Formula
         (zsh_completion/"_supabase").write `#{bin}/supabase completion zsh`
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Colt-Builders-Corp/supabase-cli/releases/download/v0.26.5/supabase-cli_0.26.5_linux_arm64.tar.gz"
-      sha256 "0c5ad216f36d760a75fede569e0e0f8393b0629b22921b1fbddc2c07a6f9ffd1"
+    if Hardware::CPU.intel?
+      url "https://github.com/Colt-Builders-Corp/supabase-cli/releases/download/v0.26.6/supabase-cli_0.26.6_linux_amd64.tar.gz"
+      sha256 "672adc14bd0cf78cae7adfda8490b09e89674a5509f12229cfa1d7d73dd29f42"
 
       def install
         bin.install "supabase"
